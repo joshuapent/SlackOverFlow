@@ -11,12 +11,12 @@ The purpose of SlackOverFlow is to serve as a site for collaboration and learnin
 -As a user, I want to be able to share images and/or embedded code blocks in my posts.  
 
 
-**Technologies Used:**
-Coding languages: Python, CSS, HTML
+**Technologies Used:**. 
+Coding languages: Python, CSS, HTML. 
 Framework: Django
 
 **Getting Started:**
-Here is our Trello board, where we established out goals and to-do list: https://trello.com/b/hX4veedL/slackofferflow
+Here is our Trello board, where we established out goals and to-do list: https://trello.com/b/hX4veedL/slackofferflow. 
 
 
 Next Steps: 
