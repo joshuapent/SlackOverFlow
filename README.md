@@ -13,7 +13,7 @@ The purpose of SlackOverFlow is to serve as a site for collaboration and learnin
 
 **Technologies Used:**
 Coding languages: Python, CSS, HTML
-Framework: Jango
+Framework: Django
 
 **Getting Started:**
 Here is our Trello board, where we established out goals and to-do list: https://trello.com/b/hX4veedL/slackofferflow
