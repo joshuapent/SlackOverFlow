@@ -7,12 +7,18 @@ body {
 
 .navbar-container {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     margin: -8px;
     height: 40px;
     background-image: linear-gradient(#C70039, #C44900);
     align-content: space-evenly;
     justify-content: space-between;
+}
+
+.right {
+}
+
+.left {
 }
 
 .nav-link-container {
