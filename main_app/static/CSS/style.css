@@ -1,3 +1,27 @@
 body {
-    background-color: aquamarine;
+    background-color: #E3E4DB;
+    position: relative;
+    min-height: 100vh;
+    overflow-y: hidden;
+}
+
+.navbar-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -8px;
+    height: 40px;
+    background-image: linear-gradient(#C70039, #C44900);
+    align-content: space-evenly;
+    justify-content: space-between;
+}
+
+.nav-link-container {
+    height: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: grey;
 }
