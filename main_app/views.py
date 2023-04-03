@@ -4,12 +4,14 @@ from django.views.generic import ListView, DetailView
 from .models import Board, Post, Comment
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 # Create your views here.
 
 class BoardCreate(CreateView):
     model = Board
     fields = ['board_name']
+    success_url = '/boards'
 
 class BoardDelete(DeleteView):
     model = Board
@@ -18,6 +20,7 @@ class BoardDelete(DeleteView):
 class PostCreate(CreateView):
     model = Post
     fields = ['text']
+    success_url = '/boards'
 
 class PostUpdate(UpdateView):
     model = Post
@@ -26,6 +29,9 @@ class PostUpdate(UpdateView):
 class PostDelete(DeleteView):
     model = Post
     success_url = '/boards'
+
+class UserDetail(DetailView):
+    model = User
 
 boards = [
     {'board_name': 'global'},
