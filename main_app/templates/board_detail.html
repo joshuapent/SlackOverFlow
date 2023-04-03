@@ -5,11 +5,17 @@
     <h1>{{ board.board_name }}</h1>
 </div>
 <div class="page-content">
-    {% for post in posts %}
-        {% if post.board.id == board.id %}
-        <p>{{ post.text }}</p>
-        {% endif %}
-    {% endfor %}
+    <ul>
+        {% for post in posts %}
+            {% if post.board.id == board.id %}
+                <a href="/posts/{{ post.id }}">
+                    <li>
+                        <p>{{ post.title }}</p>
+                    </li>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </ul>
 </div>
 
 {% endblock %}

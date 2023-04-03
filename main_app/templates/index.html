@@ -12,18 +12,24 @@
 </div>
 <div class="page-content">
     {% for board in boards %}
-    <div class="board">
-        <a href="/boards/{{board.id}}">
-            <h1>{{board.board_name}}</h1>
-        </a>
-        <div class="board-card">
-            {% for post in posts %}
-                {% if post.board.id == board.id %}
-                    <p>{{ post.text }}</p>
-                {% endif %}
-            {% endfor %}
-            <p>these are the posts</p>
-        </div>
+        <div class="board">
+            <a href="/boards/{{board.id}}">
+                <h1>{{board.board_name}}</h1>
+            </a>
+            <div class="board-card">
+                <ul>
+                    <p>these are the posts</p>
+                    {% for post in posts %}
+                        {% if post.board.id == board.id %}
+                        <li>
+                            <a href="/posts/{{post.id}}">
+                                <p>{{ post.title }}</p>
+                            </a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     {% endfor %}
 </div>
