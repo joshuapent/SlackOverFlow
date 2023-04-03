@@ -11,12 +11,21 @@
     </div>
 </div>
 <div class="page-content">
-    <div class="left-content">
-        <h1>Board A</h1>
-    </div>
-    <div class="right-content">
-        <h1>Board B</h1>
-    </div>
+    {% for board in boards %}
+    <div class="board">
+        <a href="/boards/{{board.id}}">
+            <h1>{{board.board_name}}</h1>
+        </a>
+        <div class="board-card">
+            {% for post in posts %}
+                {% if post.board.id == board.id %}
+                    <p>{{ post.text }}</p>
+                {% endif %}
+            {% endfor %}
+            <p>these are the posts</p>
+        </div>
+        </div>
+    {% endfor %}
 </div>
 
 {% endblock %}

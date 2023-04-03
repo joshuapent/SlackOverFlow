@@ -5,8 +5,13 @@ from django.contrib.auth.models import User
 # class Poster(User):
 #     def __init__(self, )
 
+
+
 class Board(models.Model):
     board_name = models.CharField(max_length=50)
+
+    def __str__ (self):
+        return f"{self.board_name}"
 
 class Post(models.Model):
     upvotes = models.IntegerField(default=0)
