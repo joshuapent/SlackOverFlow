@@ -5,9 +5,10 @@
 
 <form action="{% url 'login' %}" method="POST">
     {% csrf_token %}
-    {{ form-as_p }}
+    {{ form.as_p }}
     <input type="hidden" name="next" value="{{ next }}">
-    <button class="btn" type="submit"></button>
+    <button class="btn" type="submit">Log In</button>
+    <a href="{% url 'register' %}"><button class="btn" type="button">Sign Up</button></a>
 </form>
 
 {% endblock %}

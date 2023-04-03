@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,26 +10,29 @@
     <title>Slack OverFlow</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
     <header class="navbar">
         <nav>
             <div class="navbar-container">
                 <div class="nav-left">
                     <a href="/">
-                        <h1>Title</h1> 
+                        <h1>Slack Overflow</h1>
                     </a>
                 </div>
+                {% if user.is_authenticated %}
                 <div class="nav-right">
                     <div class="nav-link-container">
-                        <a href="/forum">Forum</a>
+                        <a href="/forum">Assemble Generally</a>
                     </div>
                     <div class="nav-link-container">
-                        <a href="/class-forum">Class-Forum</a>
+                        <a href="/class-forum">Classroom</a>
                     </div>
                     <div class="nav-link-container">
                         <a href="/boards">Boards</a>
                     </div>
                 </div>
+                {% endif %}
             </div>
         </nav>
     </header>
@@ -40,4 +44,5 @@
         Created by Josh Pent @ Luke Tyson
     </footer>
 </body>
+
 </html>
