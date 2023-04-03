@@ -7,12 +7,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slack OverFlow</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header class="navbar">
         <nav>
-            This is the nav
+            <div class="navbar-container">
+                <div class="nav-left">
+                    <a href="/">
+                        <h1>Title</h1> 
+                    </a>
+                </div>
+                <div class="nav-right">
+                    <div class="nav-link-container">
+                        <a href="/forum">Forum</a>
+                    </div>
+                    <div class="nav-link-container">
+                        <a href="/class-forum">Class-Forum</a>
+                    </div>
+                    <div class="nav-link-container">
+                        <a href="/boards">Boards</a>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
     <main class="content">
@@ -20,7 +37,7 @@
         {% endblock %}
     </main>
     <footer>
-        This is the footer.
+        Created by Josh Pent @ Luke Tyson
     </footer>
 </body>
 </html>
