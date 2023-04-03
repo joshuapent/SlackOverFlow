@@ -9,6 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slack OverFlow</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Yantramanav:wght@700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -16,8 +20,8 @@
         <nav>
             <div class="navbar-container">
                 <div class="nav-left">
-                    <a href="/">
-                        <h1>Slack Overflow</h1>
+                    <a href="/" id="brand-name-link">
+                        <h1 id="brand-name">s l a c k * o v e r f l o w</h1>
                     </a>
                     <div class="search-bar">
                         <form action="" method="GET">
@@ -36,6 +40,9 @@
                     </div>
                     <div class="nav-link-container">
                         <a href="/boards">Boards</a>
+                    </div>
+                    <div class="nav-link-container">
+                        <a href="{% url 'post_create' %}">New Post</a>
                     </div>
                     <div class="nav-link-container">
                         <a href="/accounts/logout">Logout</a>

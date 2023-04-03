@@ -11,7 +11,7 @@ body {
     display: flex;
     height: 40px;
     background-image: linear-gradient(#C70039, #C44900);
-    justify-content: space-between; 
+    justify-content: space-between;
 }
 
 .nav-right {
@@ -46,6 +46,18 @@ footer {
     background-image: linear-gradient(#C70039, #C44900);
 }
 
+#brand-name {
+    font-family: 'Righteous';
+    color: white;
+    font-size: 2em;
+    position: relative;
+    margin-left: 50px;
+}
+
+#brand-name-link:link {
+    text-decoration: none;
+}
+
 /* Start board page css */
 .page-top {
     display: flex;
@@ -67,4 +79,5 @@ footer {
     width: 45vw;
     border: 1px solid black;
 }
+
 /* end board page css */
