@@ -3,31 +3,68 @@ body {
     position: relative;
     min-height: 100vh;
     overflow-y: hidden;
+    display: block;
+    margin: 0;
 }
 
 .navbar-container {
     display: flex;
-    /* flex-wrap: wrap; */
-    margin: -8px;
     height: 40px;
     background-image: linear-gradient(#C70039, #C44900);
-    align-content: space-evenly;
-    justify-content: space-between;
+    justify-content: space-between; 
 }
 
-.right {
+.nav-right {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
 }
 
-.left {
+.nav-left {
+    display: flex;
+    width: 60%;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .nav-link-container {
+    display: flex;
     height: 100%;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+
 }
 
 footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    color: grey;
+    height: 1.5rem;
+    color: white;
+    display: flex;
+    align-content: center;
+    background-image: linear-gradient(#C70039, #C44900);
 }
+
+/* Start board page css */
+.page-top {
+    display: flex;
+}
+
+.page-content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.left-content {
+    width: 45vw;
+    height: 70vh;
+    border: 1px solid black;
+}
+
+.right-content {
+    height: 70vh;
+    width: 45vw;
+    border: 1px solid black;
+}
+/* end board page css */
