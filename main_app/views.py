@@ -19,7 +19,7 @@ class BoardDelete(DeleteView):
 
 class PostCreate(CreateView):
     model = Post
-    fields = ['text', 'board']
+    fields = ['title', 'text', 'board']
     success_url = '/boards'
 
 class PostUpdate(UpdateView):
@@ -54,12 +54,6 @@ boards = [
 
 def home(request):
     return redirect('login')
-
-def post_detail(request, post_id):
-    post = Post.objects.get(id=post_id)
-    return render(request, 'post_detail.html', {
-        'post': post
-    })
 
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
