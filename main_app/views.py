@@ -19,7 +19,7 @@ class BoardDelete(DeleteView):
 
 class PostCreate(CreateView):
     model = Post
-    fields = ['text']
+    fields = ['text', 'board']
     success_url = '/boards'
 
 class PostUpdate(UpdateView):

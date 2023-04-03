@@ -3,12 +3,13 @@
 
 <div class="page-top">
     <h1>{{ board.board_name }}</h1>
-    <div class="search-bar">
-        <form action="" method="GET">
-            <input type="search">
-            <input type="submit" name="Search">
-        </form>
-    </div>
+</div>
+<div class="page-content">
+    {% for post in posts %}
+        {% if post.board.id == board.id %}
+        <p>{{ post.text }}</p>
+        {% endif %}
+    {% endfor %}
 </div>
 
 {% endblock %}
