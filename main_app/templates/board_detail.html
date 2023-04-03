@@ -16,6 +16,9 @@
             {% endif %}
         {% endfor %}
     </ul>
+    <div class="delete-board">
+        <a href="{% url 'board_delete' board.id %}">Delete</a>
+    </div>
 </div>
 
 {% endblock %}
