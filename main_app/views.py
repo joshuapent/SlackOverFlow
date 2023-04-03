@@ -5,6 +5,8 @@ from .models import Board, Post, Comment
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.urls import reverse_lazy
+
 
 # Create your views here.
 
@@ -35,6 +37,24 @@ class PostDelete(DeleteView):
     model = Post
     success_url = '/boards'
 
+class CommentCreate(CreateView):
+    model = Comment
+    fields = ['text', 'post']
+    success_url = "url 'post_detail'"
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+    
+class CommentUpdate(UpdateView):
+    model = Comment
+    fields = ['text']
+    success_url = '/boards'
+
+class CommentDelete(DeleteView):
+    model = Comment
+    success_url = '/boards'
+
 class UserDetail(DetailView):
     model = User
 
@@ -62,8 +82,10 @@ def home(request):
 
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
+    comments = Comment.objects.all()
     return render(request, 'post_detail.html', {
-        'post': post
+        'post': post,
+        'comments': comments
     })
 
 def board_detail(request, board_id):
