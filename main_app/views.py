@@ -33,6 +33,15 @@ class PostDelete(DeleteView):
 class UserDetail(DetailView):
     model = User
 
+class UserUpdate(UpdateView):
+    model = User
+    fields = ['password', 'username', 'first_name', 'last_name', 'email']
+    success_url = '/boards'
+
+class UserDelete(DeleteView):
+    model = User
+    success_url = '/'
+
 boards = [
     {'board_name': 'global'},
     {'board_name': 'global_errors'},
