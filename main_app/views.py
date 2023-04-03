@@ -52,20 +52,34 @@ def post_detail(request, post_id):
         'post': post
     })
 
+def post_detail(request, post_id):
+    post = Post.objects.get(id=post_id)
+    return render(request, 'post_detail.html', {
+        'post': post
+    })
+
 def board_detail(request, board_id):
     board = Board.objects.get(id=board_id)
+    posts = Post.objects.all()
     return render(request, 'board_detail.html', {
-        'board': board
+        'board': board,
+        'posts': posts
     })
 
 def main_forum(request):
     return render(request, 'main_forum.html')
 
 def class_forum(request):
+
     return render(request, 'class_forum.html')
 
 def board_index(request):
-    return render(request, 'index.html')
+    posts = Post.objects.all()
+    boards = Board.objects.all()
+    return render(request, 'index.html', {
+        'posts': posts,
+        'boards': boards
+    })
 
 def register(request):
     error_message = ''
