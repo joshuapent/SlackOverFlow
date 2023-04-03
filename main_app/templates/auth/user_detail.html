@@ -9,4 +9,7 @@
     <p></p>
 </div>
 
+<a href="{% url 'users_update' user.id %}"><button type="button">Edit account</button></a>
+<a href="{% url 'users_delete' user.id %}"><button type="button">Delete account</button></a>
+
 {% endblock %}
