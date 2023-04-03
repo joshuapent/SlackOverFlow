@@ -3,9 +3,11 @@
 
 <h1> {{ post.title }} </h1>
 <p> {{ post.text }}</p>
+<p> {{ post.user }}</p>
 
 <div class="edit-or-delete-post">
     <a href="{% url 'post_delete' post.id %}">Delete</a>
+    <a href="{% url 'post_update' post.id %}">Edit</a>
 </div>
 
 {% endblock %}

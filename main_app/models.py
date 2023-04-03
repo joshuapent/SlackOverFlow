@@ -19,7 +19,7 @@ class Post(models.Model):
     title = models.TextField(max_length=100)
     text = models.TextField(max_length=1000)
     board = models.ForeignKey(Board, on_delete=models.CASCADE, default=1)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Comment(models.Model):
     upvotes = models.IntegerField(default=0)
