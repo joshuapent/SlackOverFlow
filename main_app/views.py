@@ -29,7 +29,7 @@ boards = [
 
 
 def home(request):
-    return render(request, 'home.html')
+    return redirect('login')
 
 def main_forum(request):
     return render(request, 'main_forum.html')
@@ -42,5 +42,16 @@ def boards_index(request):
 
 def register(request):
     error_message = ''
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('index')
+        else:
+            error_message = 'Invalid sign up - quit slacking off'
+    form = UserCreationForm()
+    context = {'form': form, 'error_message': error_message}
+    return render(request, 'registration/register.html', context)
 
 # def post_detail(request):
