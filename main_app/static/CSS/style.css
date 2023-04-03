@@ -10,7 +10,8 @@ body {
 .navbar-container {
     display: flex;
     height: 40px;
-    background-image: linear-gradient(#C70039, #C44900);
+    /* background-image: linear-gradient(#C70039, #C44900); */
+    background-image: linear-gradient(#aa562b, #C44900);
     justify-content: space-between;
 }
 
@@ -43,7 +44,20 @@ footer {
     color: white;
     display: flex;
     align-content: center;
-    background-image: linear-gradient(#C70039, #C44900);
+    background-image: linear-gradient(#aa562b, #C44900);
+}
+
+.navbar-links {
+    font-family: 'Righteous';
+    color: white;
+}
+
+.navbar-links:link {
+    text-decoration: none;
+}
+
+.navbar-links:hover {
+    text-decoration: underline;
 }
 
 #brand-name {
@@ -51,7 +65,12 @@ footer {
     color: white;
     font-size: 2em;
     position: relative;
-    margin-left: 50px;
+    margin-left: 25px;
+}
+
+#brand-name-star {
+    color: #ffe347;
+    border: white;
 }
 
 #brand-name-link:link {
