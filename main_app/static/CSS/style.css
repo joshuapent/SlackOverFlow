@@ -47,17 +47,34 @@ footer {
     background-image: linear-gradient(#aa562b, #C44900);
 }
 
+/* code in this section was drawn from a style doc written by Noah Raskin and slightly retooled to fit our design. this code animates an underline for links in the navbar. thanks, Noah! */
+/* https://codepen.io/noahraskin/pen/abENVwL */
+/* ------------- */
 .navbar-links {
     font-family: 'Righteous';
+    --s: 0.1em;
+    /* the thickness of the line */
+    --c: white;
+    /* the color */
+
     color: white;
+    padding-bottom: var(--s);
+    background:
+        linear-gradient(90deg, var(--c) 50%, #000 0) calc(100% - var(--_p, 0%))/200% 100%,
+        linear-gradient(var(--c) 0 0) 0% 100%/var(--_p, 0%) var(--s) no-repeat;
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    transition: 0.5s;
 }
 
 .navbar-links:link {
     text-decoration: none;
 }
 
+/* ------------- */
+
 .navbar-links:hover {
-    text-decoration: underline;
+    --_p: 100%
 }
 
 #brand-name {
@@ -69,13 +86,16 @@ footer {
 }
 
 #brand-name-star {
-    color: #ffe347;
-    border: white;
+    font-size: 2rem;
+    color: #F9f1cc;
+    text-shadow: 4.5px 4.5px 0px #FFB650;
 }
 
 #brand-name-link:link {
     text-decoration: none;
 }
+
+
 
 /* Start board page css */
 .page-top {
