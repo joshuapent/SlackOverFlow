@@ -1,13 +1,46 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1> {{ post.title }} </h1>
-<p> {{ post.text }}</p>
-<p> {{ post.user }}</p>
-
-<div class="edit-or-delete-post">
-    <a href="{% url 'post_delete' post.id %}">Delete</a>
-    <a href="{% url 'post_update' post.id %}">Edit</a>
+<div class="post-section">
+    <div class="post-text">
+        <div class="post-header">
+            <div class="post-user">
+                <p> {{ post.user }}</p>
+            </div>
+            <div class="post-title">
+                <h1> {{ post.title }} </h1>
+            </div>
+        </div>
+        <div class="post-body">
+            <p> {{ post.text }}</p>
+        </div>
+    </div>
+    <div class="post-footer">
+        <div class="edit-or-delete-post">
+            <a href="{% url 'post_delete' post.id %}">Delete</a>
+            <a href="{% url 'post_update' post.id %}">Edit</a>
+        </div>
+        <div class="comment">
+            <button>Comment</button>
+        </div>
+    </div>
 </div>
+<div class="comment">
+    <form action="/posts/{{post.id}}/comment/create/" method="POST">
+        {% csrf_token %}
+        <label for="text">Make comment here</label>
+        <input type="hidden" id="post" name="post" value="{{post.id}}">
+        <input type="text" id="text" name="text">
+        <input type="submit" value="Submit!">
+    </form>
+</div>
+<div class="comment-section">
+    <div class="comment">
+        {% for comment in comments %}
+            <p>{{comment.text}}</p>
+        {% endfor %}
+    </div>
+</div>
+
 
 {% endblock %}
