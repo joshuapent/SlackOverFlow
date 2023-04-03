@@ -9,14 +9,14 @@ class Board(models.Model):
     board_name = models.CharField(max_length=50)
 
 class Post(models.Model):
-    upvotes = models.IntegerField()
+    upvotes = models.IntegerField(default=0)
     resolved = models.BooleanField(default=False)
     text = models.TextField(max_length=1000)
-    board = models.ForeignKey(Board, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    board = models.ForeignKey(Board, on_delete=models.CASCADE, default=1)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
 class Comment(models.Model):
-    upvotes = models.IntegerField()
+    upvotes = models.IntegerField(default=0)
     text = models.TextField(max_length=1000)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -7,9 +7,17 @@ from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
+class BoardCreate(CreateView):
+    model = Board
+    fields = ['board_name']
+
+class BoardDelete(DeleteView):
+    model = Board
+    success_url = '/boards'
+
 class PostCreate(CreateView):
     model = Post
-    fields = '__all__'
+    fields = ['text']
 
 class PostUpdate(UpdateView):
     model = Post
@@ -32,13 +40,25 @@ boards = [
 def home(request):
     return redirect('login')
 
+def post_detail(request, post_id):
+    post = Post.objects.get(id=post_id)
+    return render(request, 'post_detail.html', {
+        'post': post
+    })
+
+def board_detail(request, board_id):
+    board = Board.objects.get(id=board_id)
+    return render(request, 'board_detail.html', {
+        'board': board
+    })
+
 def main_forum(request):
     return render(request, 'main_forum.html')
 
 def class_forum(request):
     return render(request, 'class_forum.html')
 
-def boards_index(request):
+def board_index(request):
     return render(request, 'index.html')
 
 def register(request):
