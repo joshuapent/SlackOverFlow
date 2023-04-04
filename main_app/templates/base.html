@@ -24,31 +24,31 @@
                         <h1 id="brand-name">s l a c k / o v e r f l o w / <span id="brand-name-star">*</span></h1>
                     </a>
                 </div>
+                {% if user.is_authenticated %}
                 <div class="nav-right">
-                    {% if user.is_authenticated %}
                     <div class="nav-link-container">
-                        <a href="/forum" class="navbar-links">* Assemble Generally</a>
+                        <a href="/forum" class="navbar-links">/ Assemble Generally</a>
                     </div>
                     <div class="nav-link-container">
-                        <a href="/class-forum" class="navbar-links">* Classroom</a>
+                        <a href="/class-forum" class="navbar-links">/ Classroom</a>
                     </div>
                     <div class="nav-link-container">
-                        <a href="/boards" class="navbar-links">* Boards</a>
+                        <a href="/boards" class="navbar-links">/ Boards</a>
                     </div>
                     <div class="nav-link-container">
-                        <a href="{% url 'post_create' %}" class="navbar-links">* New Post</a>
+                        <a href="{% url 'post_create' %}" class="navbar-links">/ New Post</a>
                     </div>
                     <div class="nav-link-container">
-                        <a href="/accounts/logout" class="navbar-links">* Logout</a>
-                    </div>
-                    {% endif %}
-                    <div class="search-bar">
-                        <form action="" method="GET">
-                            <input type="search">
-                            <input type="submit" name="Search">
-                        </form>
+                        <a href="/accounts/logout" class="navbar-links">/ Logout</a>
                     </div>
                 </div>
+                <div class="search-bar">
+                    <form action="" method="GET">
+                        <input type="search">
+                        <input type="submit" name="Search">
+                    </form>
+                </div>
+                {% endif %}
             </div>
         </nav>
     </header>
