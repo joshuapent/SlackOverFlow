@@ -23,6 +23,25 @@
                     <a href="/" id="brand-name-link">
                         <h1 id="brand-name">s l a c k / o v e r f l o w / <span id="brand-name-star">*</span></h1>
                     </a>
+                </div>
+                <div class="nav-right">
+                    {% if user.is_authenticated %}
+                    <div class="nav-link-container">
+                        <a href="/forum" class="navbar-links">* Assemble Generally</a>
+                    </div>
+                    <div class="nav-link-container">
+                        <a href="/class-forum" class="navbar-links">* Classroom</a>
+                    </div>
+                    <div class="nav-link-container">
+                        <a href="/boards" class="navbar-links">* Boards</a>
+                    </div>
+                    <div class="nav-link-container">
+                        <a href="{% url 'post_create' %}" class="navbar-links">* New Post</a>
+                    </div>
+                    <div class="nav-link-container">
+                        <a href="/accounts/logout" class="navbar-links">* Logout</a>
+                    </div>
+                    {% endif %}
                     <div class="search-bar">
                         <form action="" method="GET">
                             <input type="search">
@@ -30,25 +49,6 @@
                         </form>
                     </div>
                 </div>
-                {% if user.is_authenticated %}
-                <div class="nav-right">
-                    <div class="nav-link-container">
-                        <a href="/forum" class="navbar-links">Assemble Generally</a>
-                    </div>
-                    <div class="nav-link-container">
-                        <a href="/class-forum" class="navbar-links">Classroom</a>
-                    </div>
-                    <div class="nav-link-container">
-                        <a href="/boards" class="navbar-links">Boards</a>
-                    </div>
-                    <div class="nav-link-container">
-                        <a href="{% url 'post_create' %}" class="navbar-links">New Post</a>
-                    </div>
-                    <div class="nav-link-container">
-                        <a href="/accounts/logout" class="navbar-links">Logout</a>
-                    </div>
-                </div>
-                {% endif %}
             </div>
         </nav>
     </header>
