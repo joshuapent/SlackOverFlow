@@ -3,27 +3,25 @@
 
 <div class="post-section">
     <div class="post-text">
+        {% block post_content %}
         <div class="post-header">
             <div class="post-user">
-
+                
                 <p> {{ post.user }}</p>
 
             </div>
             <div class="post-title">
-                {% block post_title %}
 
                 <h1> {{ post.title }} </h1>
 
-                {% endblock %}
             </div>
         </div>
         <div class="post-body">
-            {% block post_body %}
 
             <p> {{ post.text }}</p>
 
-            {% endblock %}
         </div>
+        {% endblock %}
     </div>
     <div class="post-footer">
         {% block post_footer %}
@@ -63,8 +61,8 @@
                 <div class="comment-options">
                     {% block comment_options %}
 
-                    <a href="{% url 'comment_update' comment.id %}">Edit</a>
-                    <a href="{% url 'comment_delete' comment.id %}">Delete</a>
+                    <a href="{% url 'comment_edit' post.id comment.id %}">Edit</a>
+                    <a href="{% url 'comment_delete' post.id comment.id %}">Delete</a>
 
                     {% endblock %}
                 </div>
