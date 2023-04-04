@@ -1,11 +1,20 @@
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 
 # Create your models here.
-# class Poster(User):
-#     def __init__(self, )
 
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    instructor = models.BooleanField(default=False)
+    star_dev = models.BooleanField(default=False)
+    profile_pic = models.TextField(default='https://i.imgur.com/TaUnF6t.png')
+
+    def __str__ (self):
+        return f"{self.user}"
 
 
 class Board(models.Model):
