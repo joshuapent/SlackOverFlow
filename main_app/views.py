@@ -13,7 +13,6 @@ from django.urls import reverse_lazy
 class BoardCreate(CreateView):
     model = Board
     fields = ['board_name']
-    success_url = '/boards'
 
 class BoardDelete(DeleteView):
     model = Board
@@ -22,7 +21,6 @@ class BoardDelete(DeleteView):
 class PostCreate(CreateView):
     model = Post
     fields = ['title', 'text', 'board']
-    success_url = '/boards'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -31,7 +29,6 @@ class PostCreate(CreateView):
 class PostUpdate(UpdateView):
     model = Post
     fields = ['title', 'text']
-    success_url = '/boards'
 
 class PostDelete(DeleteView):
     model = Post
@@ -40,16 +37,15 @@ class PostDelete(DeleteView):
 class CommentCreate(CreateView):
     model = Comment
     fields = ['text', 'post']
-    success_url = "url 'post_detail'"
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-    
+
+
 class CommentUpdate(UpdateView):
     model = Comment
     fields = ['text']
-    success_url = '/boards'
 
 class CommentDelete(DeleteView):
     model = Comment
