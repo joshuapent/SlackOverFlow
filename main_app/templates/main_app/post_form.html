@@ -1,19 +1,21 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'post-detail/post_detail.html' %}
 
 {% if object %}
-    <h1>Edit {{object.name}} </h1>
+
+    {% block content %}
+
+        <h1>Edit {{object.name}} </h1>
+
+    {% endblock %}
+
 {% else %}
     <h1>New Post</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="Submit" value="Submit!">
+    </form>
 {% endif %}
-
-<form action="" method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-    <input type="Submit" value="Submit!">
-</form>
-
-{% endblock %}
