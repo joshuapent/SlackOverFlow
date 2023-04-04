@@ -72,14 +72,13 @@ boards = [
     {'board_name': 'classroom_fun'},
 ]
 
-
 def home(request):
     return redirect('login')
 
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
     comments = Comment.objects.all()
-    return render(request, 'post_detail.html', {
+    return render(request, 'post-detail/post_detail.html', {
         'post': post,
         'comments': comments
     })
