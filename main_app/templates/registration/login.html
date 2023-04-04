@@ -2,10 +2,12 @@
 {% block content %}
 <div class="login-card-container">
     <div class="login-card">
-        <h1 id="login-card-title">Login</h1>
+        <h1 id="login-card-title">Login / *</h1>
         <form action="{% url 'login' %}" method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="login-form">
+                {{ form.as_p }}
+            </div>
             <input type="hidden" name="next" value="{{ next }}">
             <div id="login-buttons">
                 <button class="btn" type="submit">Log In</button>
