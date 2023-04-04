@@ -3,7 +3,9 @@
 
 <h1>Hello, {{ user.username }}</h1>
 <div class="user-info">
-
+    <div id="profile-pic">
+        <img src="{{ user.userprofile.profile_pic }}" alt="">
+    </div>
     <p>Username: {{ user.username }} </p>
     <p></p>
     <p></p>
