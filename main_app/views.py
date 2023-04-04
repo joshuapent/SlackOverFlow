@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-from .models import Board, Post, Comment
+from .models import Board, Post, Comment, UserProfile
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -56,7 +56,7 @@ class UserDetail(DetailView):
 
 class UserUpdate(UpdateView):
     model = User
-    fields = ['password', 'username', 'first_name', 'last_name', 'email']
+    fields = ['username', 'first_name', 'last_name', 'email']
     success_url = '/boards'
 
 class UserDelete(DeleteView):
