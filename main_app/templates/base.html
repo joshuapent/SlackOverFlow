@@ -26,17 +26,20 @@
                 </div>
                 {% if user.is_authenticated %}
                 <div class="nav-right">
-                    <div class="nav-link-container">
+                    <!-- <div class="nav-link-container">
                         <a href="/forum" class="navbar-links">/ Assemble Generally</a>
-                    </div>
-                    <div class="nav-link-container">
+                    </div> -->
+                    <!-- <div class="nav-link-container">
                         <a href="/class-forum" class="navbar-links">/ Classroom</a>
-                    </div>
+                    </div> -->
                     <div class="nav-link-container">
                         <a href="/boards" class="navbar-links">/ Boards</a>
                     </div>
                     <div class="nav-link-container">
                         <a href="{% url 'post_create' %}" class="navbar-links">/ New Post</a>
+                    </div>
+                    <div class="nav-link-container">
+                        <a href="{% url 'users_detail' user.id %}" class="navbar-links">/ Account</a>
                     </div>
                     <div class="nav-link-container">
                         <a href="/accounts/logout" class="navbar-links">/ Logout</a>
