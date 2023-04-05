@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from .models import Board, Post, Comment, Profile
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.forms import UserCreationForm
 from main_app.forms import ProfileForm
 from django.contrib.auth.models import User
@@ -147,9 +147,16 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('index')
+            return redirect('profile_create')
         else:
             error_message = 'Invalid sign up - quit slacking off'
     form = ProfileForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/register.html', context)
+
+def profile_create(request):
+    newUser = User.objects.last()
+    newProfile = Profile.objects.create(user=newUser)
+    if newProfile:
+        newProfile.save()
+        return redirect('index')
