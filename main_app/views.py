@@ -92,6 +92,26 @@ def comment(request, post_id):
         'comments': comments
     })
 
+def comment_delete(request, post_id, comment_id):
+    post = Post.objects.get(id=post_id)
+    comments = Comment.objects.all()
+    comment = Comment.objects.get(id=comment_id)
+    return render(request, 'post-detail/comment_confirm_delete.html', {
+        'post': post,
+        'comments': comments,
+        'selected_comment': comment
+    })
+
+def comment_edit(request, post_id, comment_id):
+    post = Post.objects.get(id=post_id)
+    comments = Comment.objects.all()
+    comment = Comment.objects.get(id=comment_id)
+    return render(request, 'post-detail/comment_edit.html', {
+        'post': post,
+        'comments': comments,
+        'selected_comment': comment
+    })
+
 def board_detail(request, board_id):
     board = Board.objects.get(id=board_id)
     posts = Post.objects.all()
