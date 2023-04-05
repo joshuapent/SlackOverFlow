@@ -1,15 +1,17 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView, DetailView
-from .models import Board, Post, Comment, UserProfile
+from django.views.generic import DetailView
+from .models import Board, Post, Comment, Profile
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from main_app.forms import ProfileForm
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 
 
 # Create your views here.
 
+# CBVs start here
 class BoardCreate(CreateView):
     model = Board
     fields = ['board_name']
@@ -42,7 +44,6 @@ class CommentCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-
 class CommentUpdate(UpdateView):
     model = Comment
     fields = ['text']
@@ -54,24 +55,28 @@ class CommentDelete(DeleteView):
 class UserDetail(DetailView):
     model = User
 
-class UserUpdate(UpdateView):
-    model = User
-    fields = ['username', 'first_name', 'last_name', 'email']
-    success_url = '/boards'
-
 class UserDelete(DeleteView):
     model = User
-    success_url = '/'
+    success_url = '/boards'
 
-boards = [
-    {'board_name': 'global'},
-    {'board_name': 'global_errors'},
-    {'board_name': 'global_fun'},
-    {'board_name': 'classroom'},
-    {'board_name': 'classroom_errors'},
-    {'board_name': 'classroom_fun'},
-]
+class UserUpdate(UpdateView):
+    model = User
+    fields = ['username', 'email', 'password']
+    success_url = '/boards'
 
+class ProfileUpdate(UpdateView):
+    model = Profile
+    fields = ['profile_pic']
+    success_url = '/boards'
+# CBVs end
+
+def user_edit(request, user_id):
+    user = User.objects.get(id=user_id)
+    profile = Profile.objects.get(id=user.profile.id)
+    return render (request, 'auth/user_form.html', {
+        'user': user,
+        'profile': profile
+    })
 
 def home(request):
     return redirect('login')
@@ -138,15 +143,13 @@ def board_index(request):
 def register(request):
     error_message = ''
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = ProfileForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('index')
         else:
             error_message = 'Invalid sign up - quit slacking off'
-    form = UserCreationForm()
+    form = ProfileForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/register.html', context)
-
-# def post_detail(request):

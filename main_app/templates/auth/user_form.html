@@ -1,13 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<form action="" method="POST">
+<form action="{% url 'user_update' user.id %}" method="POST">
     {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-    <input type="Submit" value="Submit!">
+    <label>Username<input type="text" name="username" id="username" value="{{ user.username }}"></label>
+    <label>Email<input type="text" name="email" id="email" value="{{ user.email }}"></label>
+    <label>Password<input type="text" name="password" id="password"></label>
+    <input type="submit" value="Submit!">
 </form>
-<p>{{ user.username }}</p>
+<form action="{% url 'profile_update' profile.id %}" method="POST">
+    {% csrf_token %}
+    <label>Profile Picture<input type="text" name="profile_pic" value="{{ profile.profile_pic }}"></label>
+    <input type="submit" value="Submit!">
+</form>
+
+<h1>{{ user.profile.id }}</h1>
 
 {% endblock %}

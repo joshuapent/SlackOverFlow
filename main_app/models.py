@@ -6,7 +6,7 @@ from django.urls import reverse
 # Create your models here.
 
 
-class UserProfile(models.Model):
+class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     instructor = models.BooleanField(default=False)
