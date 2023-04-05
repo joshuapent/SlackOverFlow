@@ -198,3 +198,77 @@ footer {
 }
 
 /* end login page css */
+
+/*Start post page css*/
+
+.post-section {
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+}
+
+.post-container {
+    border: 1px solid black;
+    width: 80vw;
+    min-height: 70vh;
+}
+
+.post-user {
+    display: flex;
+    justify-content: right;
+    height: 5%;
+    margin: 0;
+}
+
+.post-title {
+    display: flex;
+    border: 1px solid black;
+    justify-content: center;
+}
+
+.post-body {
+    margin: 1.2em;
+}
+
+.post-footer {
+    border: 1px solid black;
+    display: flex;
+    justify-content: right;
+}
+
+.comment-create-Section {
+    display: flex;
+    justify-content: center;
+}
+
+.comment-create-widget {
+    border: 1px solid black;
+    width: 80vw;
+}
+
+.comment-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.comment {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    border: 1px solid black;
+    width: 75vw;
+}
+
+.comment-header {
+    border: 1px solid black;
+}
+
+.comment-body {
+    border: 1px solid black;
+}
+
+.comment-options {
+    border: 1px solid black;
+}
+
+/*End post page css*/
