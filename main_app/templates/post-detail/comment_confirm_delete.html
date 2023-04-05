@@ -1,14 +1,14 @@
 {% extends 'post-detail/post_detail.html' %}
 
-{% block comment-options %}
+
+{% block comment_options_var %}
 
         <div class="edit-or-delete-post">
-            <p>Are you sure you want to delete this? Its irreversible.</p>
-            <form action="" method="POST">
+            <form action="{% url 'comment_confirm_delete' post.id comment.id %}" method="POST">
                 {% csrf_token %}
                 <input type="submit" value="Yes - Delete!">
                 <a href="{% url 'post_detail' post.id %}">No, I changed my mind.</a>
             </form>
-        </div>
 
+        </div>
 {% endblock %}

@@ -1,10 +1,10 @@
 {% extends 'post-detail/post_detail.html' %}
 
-{% block comment_body %}
+{% block comment_body_var %}
 
 <form action="{% url 'comment_update' post.id comment.id %}" method="POST">
     {% csrf_token %}
-    <input type="text" name="text">
+    <input type="text" name="text" value="{{comment.text}}">
     <input type="submit" value="Submit!">
 </form>
 
