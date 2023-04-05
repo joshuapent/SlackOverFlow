@@ -133,11 +133,13 @@ def class_forum(request):
     return render(request, 'class_forum.html')
 
 def board_index(request):
+    user = request.user
     posts = Post.objects.all()
     boards = Board.objects.all()
     return render(request, 'index.html', {
         'posts': posts,
-        'boards': boards
+        'boards': boards,
+        'user': user
     })
 
 def register(request):
