@@ -4,18 +4,13 @@
 <h1>Hello, {{ user.username }}</h1>
 <div class="user-info">
     <div id="profile-pic">
-        <img src="{{ user.userprofile.profile_pic }}" alt="">
+        <img src="{{ profile.profile_pic }}" alt="">
     </div>
-    <p>Username: {{ user.username }} </p>
-    <p></p>
-    <p></p>
+    <p>Username: {{ user.username }}</p>
 </div>
-
-<p></p>
-<p></p>
-<p></p>
 
 <a href="{% url 'user_edit' user.id %}"><button type="button">Edit account</button></a>
 <a href="{% url 'users_delete' user.id %}"><button type="button">Delete account</button></a>
+<a href="{% url 'password_change' %}"><button type="button">Change Password</button></a>
 
 {% endblock %}

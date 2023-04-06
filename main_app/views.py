@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from .models import Board, Post, Comment, Profile
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.contrib.auth.forms import UserCreationForm
 from main_app.forms import ProfileForm
 from django.contrib.auth.models import User
@@ -61,8 +61,9 @@ class UserDelete(DeleteView):
 
 class UserUpdate(UpdateView):
     model = User
-    fields = ['username', 'email', 'password']
+    fields = ['username', 'email']
     success_url = '/boards'
+
 
 class ProfileUpdate(UpdateView):
     model = Profile
@@ -162,3 +163,4 @@ def profile_create(request):
     if newProfile:
         newProfile.save()
         return redirect('index')
+    
