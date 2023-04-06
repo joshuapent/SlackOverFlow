@@ -1,9 +1,8 @@
-/* 🌈BASE.HTML LINES 1 - 64 */
+/* 🌈 vvv BASE.HTML LINES 1 - 64 vvv */
 body {
     background-color: #E3E4DB;
-    position: relative;
+    position: absolute;
     min-height: 100vh;
-    /* overflow-y: hidden; */
     display: block;
     margin: 0;
 }
@@ -61,7 +60,7 @@ footer {
     background-image: linear-gradient(#aa562b, #C44900);
 }
 
-/* BASE.HTML LINES 1-64 */
+
 
 /* code in this section was drawn from a style doc written by Noah Raskin and slightly retooled to fit our design. this code animates an underline for links in the navbar. thanks, Noah! */
 /* https://codepen.io/noahraskin/pen/abENVwL */
@@ -112,39 +111,58 @@ footer {
     text-decoration: none;
 }
 
+/* 🌈 ^^^ BASE.HTML LINES 1-114 ^^^ */
 
 
-/* Start board page css */
-.page-top {
-    display: flex;
-    justify-content: center;
-}
+/* 🌈 vvv INDEX.HTML LINES 118 -  vvv */
 
-.page-content {
+.board-container {
     display: flex;
     justify-content: center;
     margin: 1rem;
     gap: 1rem;
-    flex-wrap: wrap;
+}
+
+/* .board {
+} */
+
+.board-card-text {
+    font-family: 'Righteous';
+    color: #a03b00;
+    text-shadow: 2.5px 2.5px 0px white;
+}
+
+.board-card-title {
+    font-family: 'Righteous';
+    font-size: 2.5em;
+    color: #a03b00;
+    text-align: center;
+    text-shadow: 2.5px 2.5px 0px white;
+    /* background-image: linear-gradient(#f2d362, #C44900); */
+    background-color: transparent;
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    justify-content: flex-start;
 }
 
 .left-content {
     width: 45vw;
     height: 70vh;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .right-content {
     height: 70vh;
     width: 45vw;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .board-card {
     font-size: 2rem;
 }
 
-/* end board page css */
+/* 🌈 ^^^ INDEX.HTML LINES 118 - ^^^ */
 
 /* login page css */
 .card-container {

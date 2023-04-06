@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="page-top">
-</div>
-<div class="card-container">
-    {% for board in boards %}
-    <div class="card">
-        <h1 class="card-title">My Boards </h1>
-        <a href="/boards/{{board.id}}">
-            <div class="board_title">
-                <h1>{{board.board_name}}</h1>
-            </div>
-        </a>
+<div class="board-container">
+    <div class="board">
+        <h1 class="board-card-title board-card-text">m y / B o a r d s </h1>
+        <hr>
+        {% for board in boards %}
+        <div class="board_title">
+            <a href="/boards/{{board.id}}">
+                <h1 class="board-card-text">{{board.board_name}}</h1>
+            </a>
+        </div>
         <div class="board-card">
             <ul>
                 {% if board.post_set.count >= 1 %}
@@ -19,18 +18,18 @@
                 {% if post.board.id == board.id %}
                 <li>
                     <a href="/posts/{{post.id}}">
-                        <p>{{ post.title }}</p>
+                        <p class="board-card-text">{{ post.title }}</p>
                     </a>
                 </li>
                 {% endif %}
                 {% endfor %}
                 {% else %}
-                <p>This forum doesn't have any posts yet</p>
+                <p class="board-card-text">This forum doesn't have any posts yet</p>
                 {% endif %}
             </ul>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 
 {% endblock %}
