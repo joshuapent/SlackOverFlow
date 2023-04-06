@@ -1,17 +1,5 @@
 {% extends 'post-detail/post_detail.html' %}
 
-{% block post_footer %}
-
-<div class="edit-or-delete-post">
-    <a href="{% url 'post_delete' post.id %}">Delete</a>
-    <a href="{% url 'post_update' post.id %}">Edit</a>
-</div>
-<div class="comment">
-    <a href="{% url 'post_detail' post.id %}">Comment</a>
-</div>
-
-{% endblock %}
-
 {% block comment_create %}
 
 <form action="/posts/{{post.id}}/comment/create/" method="POST">

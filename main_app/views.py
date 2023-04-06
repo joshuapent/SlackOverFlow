@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
-from .models import Board, Post, Comment, Profile
+from .models import Board, Post, Comment, Profile, Upvotes
 from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.contrib.auth.forms import UserCreationForm
 from main_app.forms import ProfileForm
@@ -70,6 +70,13 @@ class ProfileUpdate(UpdateView):
     fields = ['profile_pic']
     success_url = '/boards'
 # CBVs end
+
+def upvote(request, post_id):
+    post = Post.objects.get(id=post_id)
+    # user = User.objects.get(id=request.session.user)
+    upvotes = Upvotes.objects.create(post=post)
+    upvotes.save()
+    return redirect(f'/posts/{post_id}')
 
 def user_edit(request, user_id):
     user = User.objects.get(id=user_id)

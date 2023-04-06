@@ -35,6 +35,8 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
 
+    def upvote_count(self):
+        return self.upvotes.count()
 
     def __str__ (self):
         return f'{self.user.name}: ({self.title})'
