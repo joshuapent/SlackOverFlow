@@ -42,10 +42,9 @@ body {
     height: 100%;
     flex-wrap: wrap;
     align-content: space-evenly;
-
 }
 
-footer {
+.nav-link-container>a:text footer {
     font-family: 'Righteous';
     position: sticky;
     top: 100%;
@@ -293,6 +292,10 @@ footer {
 
 #user-update-cards {
     display: flex;
+}
+
+#user-update-cards>div>div {
+    width: 35vw;
 }
 
 /* End User Profile CSS */
