@@ -51,12 +51,13 @@
     {% for comment in comments %}
         <div class="comment">
             {% if comment.post.id == post.id  %}
-                <div class="comment-header"></div>
+                <div class="comment-header">
                     {% block comment_header %}
 
                     <h3>{{comment.user}}</h3>
 
                     {% endblock %}
+                </div>
                 <div class="comment-body">
                     {% if comment.id == selected_comment.id %}
                     
