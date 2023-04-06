@@ -6,7 +6,7 @@
         <div id="profile-pic">
             <img src="{{ user.profile.profile_pic }}" alt="">
         </div>
-        <div id="card-buttons">
+        <div class="card-buttons">
             <a href="{% url 'user_edit' user.id %}"><button type="button">Edit account</button></a>
             <br>
             <a href="{% url 'users_delete' user.id %}"><button type="button">Delete account</button></a>
