@@ -44,7 +44,7 @@ body {
     align-content: space-evenly;
 }
 
-.nav-link-container>a:text footer {
+footer {
     font-family: 'Righteous';
     position: sticky;
     top: 100%;
