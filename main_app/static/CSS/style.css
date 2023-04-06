@@ -158,7 +158,6 @@ footer {
     border-radius: 15px;
     box-shadow: 10px 10px 15px -15px;
     display: flex;
-    /* position: relative; */
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
@@ -211,6 +210,9 @@ footer {
 
 .card>form {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #login-buttons>div>a>button {
@@ -218,7 +220,7 @@ footer {
     border-radius: 5px;
 }
 
-#card-title {
+.card-title {
     font-size: 2.5em;
     color: white;
     text-align: center;
@@ -251,12 +253,12 @@ footer {
 
 
 /* Start User Profile CSS */
-#profile-pic {
+.profile-pic {
     height: 30%;
     width: 40%;
 }
 
-#profile-pic>img {
+.profile-pic>img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -287,6 +289,10 @@ footer {
 .card-buttons>a>button:hover {
     border-color: #fff;
     border-width: 1px 2px 1px 2px;
+}
+
+#user-update-cards {
+    display: flex;
 }
 
 /* End User Profile CSS */

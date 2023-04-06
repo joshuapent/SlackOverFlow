@@ -1,20 +1,45 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Please fill out all spaces</h1>
-<form action="{% url 'user_update' user.id %}" method="POST">
-    {% csrf_token %}
-    <label>Username<input type="text" name="username" id="username" value="{{ user.username }}"></label>
-    <label>Email<input type="text" name="email" id="email" value="{{ user.email }}"></label>
-    <input type="submit" value="Submit!">
-</form>
-<form action="{% url 'profile_update' profile.id %}" method="POST">
-    {% csrf_token %}
-    <label>Profile Picture<input type="text" name="profile_pic" value="{{ profile.profile_pic }}"></label>
-    <input type="submit" value="Submit!">
-</form>
+<div id="user-update-cards">
+    <div class="card-container">
+        <div class="card">
+            <h1 class="card-title">Please fill out all spaces</h1>
+            <form action="{% url 'user_update' user.id %}" method="POST">
+                {% csrf_token %}
+                <div class="login-form">
+                    <p><label>Username</label><input type="text" name="username" id="username"
+                            value="{{ user.username }}">
+                    </p>
+                    <p><label>Email</label><input type="text" name="email" id="email" value="{{ user.email }}"></p>
+                </div>
 
-<h1>{{ profile.id }}</h1>
-<h1>{{ user.id }}</h1>
+                <div class="card-buttons">
+                    <a href=""><button type="submit">Submit</button></a>
+                </div>
 
+            </form>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="card">
+            <div class="profile-pic">
+                <img src="{{ user.profile.profile_pic }}" alt="">
+            </div>
+            <form action="{% url 'profile_update' profile.id %}" method="POST">
+                {% csrf_token %}
+                <div class="login-form">
+                    <p><label>Profile Picture</label><input type="text" name="profile_pic"
+                            value="{{ profile.profile_pic }}">
+                    </p>
+                </div>
+
+                <div class="card-buttons">
+                    <a href=""><button type="submit">Submit</button></a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

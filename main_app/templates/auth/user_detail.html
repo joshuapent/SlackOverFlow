@@ -2,8 +2,8 @@
 {% block content%}
 <div class="card-container">
     <div class="card">
-        <h1 id="card-title">Hello, {{ user.username }}</h1>
-        <div id="profile-pic">
+        <h1 class="card-title">Hello, {{ user.username }}</h1>
+        <div class="profile-pic">
             <img src="{{ user.profile.profile_pic }}" alt="">
         </div>
         <div class="card-buttons">
