@@ -42,7 +42,6 @@ body {
     height: 100%;
     flex-wrap: wrap;
     align-content: space-evenly;
-
 }
 
 footer {
@@ -93,6 +92,7 @@ footer {
     font-size: 2em;
     position: relative;
     margin-left: 25px;
+    white-space: nowrap;
 }
 
 #brand-name-star {
@@ -157,7 +157,6 @@ footer {
     border-radius: 15px;
     box-shadow: 10px 10px 15px -15px;
     display: flex;
-    /* position: relative; */
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
@@ -174,11 +173,13 @@ footer {
 .login-form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .login-form>p {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .login-form>p>label {
@@ -188,18 +189,37 @@ footer {
 }
 
 .login-form>p>input {
-    background-color: #E3E4DB;
-    box-shadow: 1 1 15px 4px rgba(206, 206, 206, 0.06);
+    background: #fff;
     padding: 2.5%;
     border-radius: 5px;
+    width: 100%;
+}
+
+#login-buttons {
+    /* background-color: black; */
+    width: 100%;
 }
 
 #login-buttons>div {
+    width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
-#card-title {
+.card>form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-buttons>div>a>button {
+    width: 5em;
+    border-radius: 5px;
+}
+
+.card-title {
     font-size: 2.5em;
     color: white;
     text-align: center;
@@ -232,12 +252,12 @@ footer {
 
 
 /* Start User Profile CSS */
-#profile-pic {
+.profile-pic {
     height: 30%;
     width: 40%;
 }
 
-#profile-pic>img {
+.profile-pic>img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -246,8 +266,8 @@ footer {
 .card-buttons {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    justify-content: space-evenly;
+    width: 60%;
+    align-items: space-between;
 }
 
 .card-buttons>a>button {
@@ -261,12 +281,21 @@ footer {
     border-width: 1px;
     border-style: solid;
     border-color: #ddaa8a;
+    border-radius: 5px;
     margin: 2%;
 }
 
 .card-buttons>a>button:hover {
-    border-color: #ddaa8a #ddaa8a #ddaa8a #C44900;
-    border-width: 1px 1px 1px 3px;
+    border-color: #fff;
+    border-width: 1px 2px 1px 2px;
+}
+
+#user-update-cards {
+    display: flex;
+}
+
+#user-update-cards>div>div {
+    width: 35vw;
 }
 
 /* End User Profile CSS */
