@@ -36,8 +36,13 @@
                 <a href="{% url 'comment' post.id %}">Comment</a>
             </div>
             {% endblock %}
-            
-            <div class="likes">Upvotes: {{post.upvotes}}</div>
+            <div class="upvote">
+                <form action="{% url 'upvote' post.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" value='Upvote'>
+                </form>
+            </div>
+            <div class="likes">Upvotes:</div>
         </div>
     </div>
 </div>
@@ -86,10 +91,9 @@
                     {% else %}
 
                     {% block comment_options %}
-
-                    <a href="{% url 'comment_edit' post.id comment.id %}">Edit</a>
+                    <a href="#comment">
+                    <a href="{% url 'comment_edit' post.id comment.id %}">Edit</a></a>
                     <a href="{% url 'comment_delete' post.id comment.id %}">Delete</a>
-
                     {% endblock %}
 
                     {% endif %}
