@@ -35,9 +35,6 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
 
-    def upvote_count(self):
-        return self.upvotes.count()
-
     def __str__ (self):
         return f'{self.user.name}: ({self.title})'
     
@@ -50,6 +47,8 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
 
+    def upvote_count(self):
+        return self.upvotes.count()
 
     def __str__ (self):
         return f'{self.user}, {self.post.title}'
@@ -57,9 +56,10 @@ class Comment(models.Model):
     def get_absolute_url (self):
         return reverse('post_detail', kwargs={'post_id': self.post.id})
 
-class Upvotes(models.Model):
-    post = models.OneToOneField(Post, related_name='upvotes', on_delete=models.CASCADE)
-    users = models.ManyToManyField(User)
+class Upvote(models.Model):
+    comment = models.OneToOneField(Comment, related_name='upvotes', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    isclicked = models.BooleanField(default=False)
 
     def __str__ (self):
         return f"Like connected to: {self.post.title}"

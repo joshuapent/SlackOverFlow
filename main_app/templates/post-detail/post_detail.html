@@ -36,13 +36,6 @@
                 <a href="{% url 'comment' post.id %}">Comment</a>
             </div>
             {% endblock %}
-            <div class="upvote">
-                <form action="{% url 'upvote' post.id %}" method="POST">
-                    {% csrf_token %}
-                    <input type="submit" value='Upvote'>
-                </form>
-            </div>
-            <div class="likes">Upvotes:</div>
         </div>
     </div>
 </div>
@@ -97,7 +90,13 @@
                     {% endblock %}
 
                     {% endif %}
-
+                    <div class="upvote">
+                        <form action="{% url 'upvote' post.id comment.id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="submit" value='Upvote'>
+                        </form>
+                    </div>
+                    <div class="likes">Upvotes:</div>
                 </div>
             {% endif %}
         </div>

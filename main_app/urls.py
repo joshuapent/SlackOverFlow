@@ -29,5 +29,5 @@ urlpatterns = [
     path('user/<int:pk>/update_account/', views.UserUpdate.as_view(), name='user_update'),
     path('user/<int:pk>/profile_update/', views.ProfileUpdate.as_view(), name='profile_update'),
     path('change-password/', auth_views.PasswordChangeView.as_view(template_name='registration/password_change_form.html', success_url = '/accounts/password_change/done/'), name='change_password'),
-    path('posts/<int:post_id>/upvote', views.upvote, name='upvote'),
+    path('posts/<int:post_id>/upvote/<int:comment_id>', views.upvote, name='upvote'),
 ] 
