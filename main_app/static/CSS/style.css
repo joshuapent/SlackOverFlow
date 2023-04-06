@@ -1,3 +1,4 @@
+/* 🌈BASE.HTML LINES 1 - 64 */
 body {
     background-color: #E3E4DB;
     position: relative;
@@ -59,6 +60,8 @@ footer {
     display: flex;
     background-image: linear-gradient(#aa562b, #C44900);
 }
+
+/* BASE.HTML LINES 1-64 */
 
 /* code in this section was drawn from a style doc written by Noah Raskin and slightly retooled to fit our design. this code animates an underline for links in the navbar. thanks, Noah! */
 /* https://codepen.io/noahraskin/pen/abENVwL */
