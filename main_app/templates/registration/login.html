@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="login-card-container">
-    <div class="login-card">
-        <h1 id="login-card-title">Login / *</h1>
+<div class="card-container">
+    <div class="card">
+        <h1 id="card-title">Login / *</h1>
         <form action="{% url 'login' %}" method="POST">
             {% csrf_token %}
             <div class="login-form">

@@ -73,7 +73,7 @@ class ProfileUpdate(UpdateView):
 
 def user_edit(request, user_id):
     user = User.objects.get(id=user_id)
-    profile = Profile.objects.get(id=user.profile.id)
+    profile = Profile.objects.get(id=user_id)
     return render (request, 'auth/user_form.html', {
         'user': user,
         'profile': profile
