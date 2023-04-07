@@ -34,19 +34,20 @@
                         <a href="/class-forum" class="navbar-links">/ Classroom</a>
                     </div> -->
                     <div class="nav-link-container">
-                        <a href="/boards" class="navbar-links">/ Boards</a>
+                        <a href="/boards" class="navbar-links" id="navbar-links-boards">/ Boards</a>
                     </div>
                     <div class="nav-link-container">
-                        <a href="{% url 'post_create' %}" class="navbar-links">/ New Post</a>
+                        <a href="{% url 'post_create' %}" class="navbar-links" id="navbar-links-new-post">/ New Post</a>
+                    </div>
+                    <div class=" nav-link-container">
+                        <a href="{% url 'users_detail' user.id %}" class="navbar-links" id="navbar-links-account">/
+                            Account</a>
                     </div>
                     <div class="nav-link-container">
-                        <a href="{% url 'users_detail' user.id %}" class="navbar-links">/ Account</a>
-                    </div>
-                    <div class="nav-link-container">
-                        <a href="/accounts/logout" class="navbar-links">/ Logout</a>
+                        <a href="/accounts/logout" class="navbar-links" id="navbar-links-logout">/ Logout</a>
                     </div>
                 </div>
-                <div class="search-bar">
+                <div class="search-bar" id="navbar-search-bar">
                     <form action="" method="GET">
                         <input type="search">
                         <input type="submit" name="Search">

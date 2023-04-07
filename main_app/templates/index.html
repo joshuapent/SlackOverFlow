@@ -6,12 +6,12 @@
         <h1 class="board-card-title board-card-text">m y / B o a r d s </h1>
         <hr>
         {% for board in boards %}
-        <div class="board_title">
-            <a href="/boards/{{board.id}}">
-                <h1 class="board-card-text">{{board.board_name}}</h1>
-            </a>
-        </div>
         <div class="board-card">
+            <div class="board_title">
+                <a href="/boards/{{board.id}}">
+                    <h1 class="board-card-text">{{board.board_name}}</h1>
+                </a>
+            </div>
             <ul>
                 {% if board.post_set.count >= 1 %}
                 {% for post in posts %}
