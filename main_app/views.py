@@ -75,9 +75,10 @@ def upvote(request, post_id, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
     # post = Post.objects.get(id=post_id)
     # user = User.objects.get(id=request.session.user)
-    upvote = Upvote.objects.create(comment=comment, user=request.user)
-    upvote.isclicked = True
-    upvote.save()
+    upvote, created = Upvote.objects.get_or_create(comment=comment, user=request.user)
+    if not created:
+        Upvote.objects.filter(comment=comment, user=request.user).delete()
+
     return redirect(f'/posts/{post_id}')
     # else:
     #     upvote = Upvote.objects.filter(comment=comment, user=request.user).delete()
