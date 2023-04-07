@@ -8,14 +8,19 @@ body {
 }
 
 body {
-    background-color: #E3E4DB;
-
+    /* background-color: #E3E4DB; */
+    background-image: linear-gradient(120deg #E3E4DB #ffffff);
     /* makes the body fill the view window */
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+}
+
+.span-gold-shadow-text {
+    color: rgb(216, 184, 4);
+    text-shadow: 2px 2px 0px #FFB650;
 }
 
 .navbar-container {
@@ -55,8 +60,8 @@ body {
 .nav-link-container {
     display: flex;
     height: 100%;
-    flex-wrap: wrap;
     align-content: space-evenly;
+    align-items: center;
 }
 
 footer {
@@ -146,14 +151,15 @@ footer {
 .board-container {
     display: flex;
     justify-content: center;
-    margin: 1rem;
-    gap: 1rem;
-    background-color: pink;
+    /* background-color: pink; */
     width: 100%;
+    height: 100%;
 }
 
-/* .board {
-} */
+.board {
+    width: 100%;
+    height: 80%;
+}
 
 
 .board-card-title {
@@ -161,25 +167,22 @@ footer {
     font-size: 2.5em;
     color: #a03b00;
     text-align: center;
-    text-shadow: 2.5px 2.5px 0px white;
+    text-shadow: 2px 2px 0px #FFB650;
     /* background-image: linear-gradient(#f2d362, #C44900); */
-    background-color: transparent;
+    /* background-color: transparent; */
     width: 100%;
-    margin-top: 1%;
-    margin-bottom: 1%;
     justify-content: flex-start;
 }
 
 .board-card-text {
-    font-family: 'Righteous';
+    font-family: 'Yantramanav', sans-serif;
     color: #a03b00;
-    text-shadow: 2.5px 2.5px 0px white;
 }
 
 
 
-*/ .board-card {
-    background-color: rgb(237, 244, 247);
+.board-card {
+    background-color: rgb(232, 244, 249);
 }
 
 
@@ -283,23 +286,6 @@ footer {
 }
 
 /* End login page css */
-
-/*Start post page css*/
-/*Start forum index css*/
-.board {
-    min-width: 40vw;
-    min-height: 80vh;
-    border: 1px solid black;
-}
-
-.board_title {
-    display: flex;
-    justify-content: center;
-    border: 1px solid black;
-}
-
-/*Stop forum index css*/
-
 
 /* Start User Profile CSS */
 .profile-pic {
