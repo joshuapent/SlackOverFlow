@@ -1,10 +1,26 @@
+/* 🌈 vvv BASE.HTML LINES 1 - 64 vvv */
+html,
 body {
-    background-color: #E3E4DB;
-    position: relative;
-    min-height: 100vh;
-    /* overflow-y: hidden; */
-    display: block;
+    height: 100%;
+    width: 100%;
     margin: 0;
+    padding: 0;
+}
+
+body {
+    /* background-color: #E3E4DB; */
+    background-image: linear-gradient(120deg #E3E4DB #ffffff);
+    /* makes the body fill the view window */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.span-gold-shadow-text {
+    color: rgb(216, 184, 4);
+    text-shadow: 2px 2px 0px #FFB650;
 }
 
 .navbar-container {
@@ -44,8 +60,8 @@ body {
 .nav-link-container {
     display: flex;
     height: 100%;
-    flex-wrap: wrap;
     align-content: space-evenly;
+    align-items: center;
 }
 
 footer {
@@ -58,6 +74,24 @@ footer {
     color: white;
     display: flex;
     background-image: linear-gradient(#aa562b, #C44900);
+}
+
+@media (max-width: 1300px) {
+    #navbar-links-boards {
+        display: none;
+    }
+}
+
+@media (max-width: 1100px) {
+    #navbar-search-bar {
+        display: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    #navbar-links-new-post {
+        display: none;
+    }
 }
 
 /* code in this section was drawn from a style doc written by Noah Raskin and slightly retooled to fit our design. this code animates an underline for links in the navbar. thanks, Noah! */
@@ -109,39 +143,54 @@ footer {
     text-decoration: none;
 }
 
+/* 🌈 ^^^ BASE.HTML LINES 1-114 ^^^ */
 
 
-/* Start board page css */
-.page-top {
+/* 🌈 vvv INDEX.HTML LINES 118 -  vvv */
+
+.board-container {
     display: flex;
     justify-content: center;
+    /* background-color: pink; */
+    width: 100%;
+    height: 100%;
 }
 
-.page-content {
-    display: flex;
-    justify-content: center;
-    margin: 1rem;
-    gap: 1rem;
-    flex-wrap: wrap;
+.board {
+    width: 100%;
+    height: 80%;
 }
 
-.left-content {
-    width: 45vw;
-    height: 70vh;
-    border: 1px solid black;
+
+.board-card-title {
+    font-family: 'Righteous';
+    font-size: 2.5em;
+    color: #a03b00;
+    text-align: center;
+    text-shadow: 2px 2px 0px #FFB650;
+    /* background-image: linear-gradient(#f2d362, #C44900); */
+    /* background-color: transparent; */
+    width: 100%;
+    justify-content: flex-start;
 }
 
-.right-content {
-    height: 70vh;
-    width: 45vw;
-    border: 1px solid black;
+.board-card-text {
+    font-family: 'Yantramanav', sans-serif;
+    color: #a03b00;
 }
+
+
 
 .board-card {
+    background-color: rgb(232, 244, 249);
+}
+
+
+*/ .board-card {
     font-size: 2rem;
 }
 
-/* end board page css */
+/* 🌈 ^^^ INDEX.HTML LINES 118 - ^^^ */
 
 /* login page css */
 .card-container {
@@ -237,23 +286,6 @@ footer {
 }
 
 /* End login page css */
-
-/*Start post page css*/
-/*Start forum index css*/
-.board {
-    min-width: 40vw;
-    min-height: 80vh;
-    border: 1px solid black;
-}
-
-.board_title {
-    display: flex;
-    justify-content: center;
-    border: 1px solid black;
-}
-
-/*Stop forum index css*/
-
 
 /* Start User Profile CSS */
 .profile-pic {
