@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9ry))x#^nj$w89h8n-qm#k70e1$$0=*xx0m926)z!n4k$+!&d$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://slackoverflow.herokuapp.com']
 
@@ -131,7 +131,5 @@ LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-if os.getcwd() == '/app':
-    DEBUG = False
 import django_on_heroku
 django_on_heroku.settings(locals())
