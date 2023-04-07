@@ -5,35 +5,37 @@
 <div class="post-section">
     <div class="post-container">
         <div class="post-text">
-            {% block post_content %}
             <div class="post-header">
                 <div class="post-user">
-                    
+                {% block post_user %}
                     <p> {{ post.user }}</p>
-                    
+                {% endblock %}
                 </div>
                 <div class="post-title">
-                    
+                {% block post_title %}
                     <h1> {{ post.title }} </h1>
-                    
+                {% endblock %}
                 </div>
             </div>
+
             <div class="post-body">
-                
+                {% block post_content %}
+
                 <p> {{ post.text }}</p>
                 
+                {% endblock %}
             </div>
-            {% endblock %}
         </div>
         <div class="post-footer">
             {% block post_footer %}
-            
-            <div class="edit-or-delete-post">
-                <a href="{% url 'post_delete' post.id %}">Delete</a>
-                <a href="{% url 'post_update' post.id %}">Edit</a>
-            </div>
             <div class="comment-display">
+                {% block comment_click %}
                 <a href="{% url 'comment' post.id %}">Comment</a>
+                {% endblock %}
+            </div>
+            <div class="edit-or-delete-post">
+                <a href="{% url 'post_update' post.id %}">Edit</a>
+                <a href="{% url 'post_delete' post.id %}">Delete</a>
             </div>
             {% endblock %}
         </div>
@@ -67,7 +69,7 @@
 
                     {% block comment_body %}
 
-                        <p>{{comment.text}}, {{comment.upvote_count}}, {{Upvote.amount}}</p>
+                        <p>{{comment.text}}</p>
 
                     {% endblock %}
 
