@@ -67,7 +67,7 @@
 
                     {% block comment_body %}
 
-                        <p>{{comment.text}}</p>
+                        <p>{{comment.text}}, {{comment.upvote_count}}, {{Upvote.amount}}</p>
 
                     {% endblock %}
 
@@ -96,7 +96,7 @@
                             <input type="submit" value='Upvote'>
                         </form>
                     </div>
-                    <div class="likes">Upvotes:</div>
+                    <div class="likes">Upvotes: {{comment.upvote_count}}</div>
                 </div>
             {% endif %}
         </div>

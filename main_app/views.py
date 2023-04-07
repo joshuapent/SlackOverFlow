@@ -72,12 +72,17 @@ class ProfileUpdate(UpdateView):
 # CBVs end
 
 def upvote(request, post_id, comment_id):
-    post = get_object_or_404(Comment, id=comment_id)
+    comment = get_object_or_404(Comment, id=comment_id)
     # post = Post.objects.get(id=post_id)
     # user = User.objects.get(id=request.session.user)
-    upvotes = Upvote.objects.create(comment=comment, user=request.user)
-    upvotes.save()
+    upvote = Upvote.objects.create(comment=comment, user=request.user)
+    upvote.isclicked = True
+    upvote.save()
     return redirect(f'/posts/{post_id}')
+    # else:
+    #     upvote = Upvote.objects.filter(comment=comment, user=request.user).delete()
+    #     return redirect(f'/posts/{post_id}')
+
 
 def user_edit(request, user_id):
     user = User.objects.get(id=user_id)

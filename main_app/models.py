@@ -48,7 +48,8 @@ class Comment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def upvote_count(self):
-        return self.upvotes.count()
+        return Upvote.objects.filter(comment=self.id).count()
+    # Comment.objects.filter(upvotes=self.id).count()
 
     def __str__ (self):
         return f'{self.user}, {self.post.title}'
@@ -57,8 +58,8 @@ class Comment(models.Model):
         return reverse('post_detail', kwargs={'post_id': self.post.id})
 
 class Upvote(models.Model):
-    comment = models.OneToOneField(Comment, related_name='upvotes', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    comment = models.ForeignKey(Comment, related_name='upvotes', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='upvotes', on_delete=models.CASCADE)
     isclicked = models.BooleanField(default=False)
 
     def __str__ (self):
