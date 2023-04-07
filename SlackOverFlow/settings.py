@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-9ry))x#^nj$w89h8n-qm#k70e1$$0=*xx0m926)z!n4k$+!&d$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://slackoverflow.herokuapp.com']
 
 
 # Application definition
