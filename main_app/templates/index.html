@@ -8,8 +8,8 @@
         <hr>
         <div class="board-card">
             <div class="board_title">
-                <a href="/boards/{{board.id}}">
-                    <h1 class="board-card-text">{{board.board_name}}</h1>
+                <a class="index-links" href="/boards/{{board.id}}">
+                    <h1 class="board-card-text">{{board.board_name}} </h1>
                 </a>
             </div>
             <ul>
@@ -17,8 +17,8 @@
                 {% for post in posts %}
                 {% if post.board.id == board.id %}
                 <li>
-                    <a href="/posts/{{post.id}}">
-                        <p class="board-card-text">{{ post.title }}</p>
+                    <a class="index-links" href="/posts/{{post.id}}">
+                        <p class="board-card-text"> <span class="span-gold-shadow-text">/</span> {{ post.title }}</p>
                     </a>
                 </li>
                 {% endif %}
