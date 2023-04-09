@@ -1,0 +1,341 @@
+/* 🌈 vvv BASE.HTML LINES 1 - 64 vvv */
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+body {
+    /* background-color: #E3E4DB; */
+    background-image: linear-gradient(120deg #E3E4DB #ffffff);
+    /* makes the body fill the view window */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.span-gold-shadow-text {
+    color: rgb(216, 184, 4);
+    text-shadow: 2px 2px 0px #FFB650;
+}
+
+.navbar-container {
+    display: flex;
+    height: 10vh;
+    max-height: 50px;
+    width: 100vw;
+    background-image: linear-gradient(#aa562b, #C44900);
+    box-shadow: 10px 10px 15px -15px;
+}
+
+.nav-right {
+    width: 50%;
+    min-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    white-space: nowrap;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    /* flex-wrap: wrap; */
+    align-content: center;
+}
+
+.search-bar {
+    width: 20%;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.nav-link-container {
+    display: flex;
+    height: 100%;
+    align-content: space-evenly;
+    align-items: center;
+}
+
+footer {
+    font-family: 'Righteous';
+    position: sticky;
+    top: 100%;
+    width: 100%;
+    height: 5vh;
+    max-height: 30px;
+    color: white;
+    display: flex;
+    background-image: linear-gradient(#aa562b, #C44900);
+}
+
+@media (max-width: 1300px) {
+    #navbar-links-boards {
+        display: none;
+    }
+}
+
+@media (max-width: 1100px) {
+    #navbar-search-bar {
+        display: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    #navbar-links-new-post {
+        display: none;
+    }
+}
+
+/* code in this section was drawn from a style doc written by Noah Raskin and slightly retooled to fit our design. this code animates an underline for links in the navbar. thanks, Noah! */
+/* https://codepen.io/noahraskin/pen/abENVwL */
+/* ------------- */
+.navbar-links {
+    font-family: 'Righteous';
+    --s: 0.1em;
+    /* the thickness of the line */
+    --c: white;
+    /* the color */
+
+    color: white;
+    padding-bottom: var(--s);
+    background:
+        linear-gradient(90deg, var(--c) 50%, #000 0) calc(100% - var(--_p, 0%))/200% 100%,
+        linear-gradient(var(--c) 0 0) 0% 100%/var(--_p, 0%) var(--s) no-repeat;
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    transition: 0.5s;
+}
+
+.navbar-links:link {
+    text-decoration: none;
+}
+
+/* ------------- */
+
+.navbar-links:hover {
+    --_p: 100%
+}
+
+#brand-name {
+    font-family: 'Righteous';
+    color: white;
+    font-size: 2em;
+    position: relative;
+    margin-left: 25px;
+    white-space: nowrap;
+}
+
+#brand-name-star {
+    font-size: 2rem;
+    color: #F9f1cc;
+    text-shadow: 4.5px 4.5px 0px #FFB650;
+}
+
+#brand-name-link:link {
+    text-decoration: none;
+}
+
+/* 🌈 ^^^ BASE.HTML LINES 1-114 ^^^ */
+
+
+/* 🌈 vvv INDEX.HTML LINES 118 -  vvv */
+
+.board-container {
+    display: flex;
+    justify-content: center;
+    /* background-color: pink; */
+    width: 100%;
+    height: 100%;
+}
+
+.board {
+    width: 100%;
+    height: 80%;
+}
+
+
+.board-card-title {
+    font-family: 'Righteous';
+    font-size: 2.5em;
+    color: #a03b00;
+    text-align: center;
+    text-shadow: 2px 2px 0px #FFB650;
+    /* background-image: linear-gradient(#f2d362, #C44900); */
+    /* background-color: transparent; */
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.board-card-text {
+    font-family: 'Yantramanav', sans-serif;
+    color: #a03b00;
+}
+
+
+
+.board-card {
+    background-color: rgb(232, 244, 249);
+}
+
+
+*/ .board-card {
+    font-size: 2rem;
+}
+
+/* 🌈 ^^^ INDEX.HTML LINES 118 - ^^^ */
+
+/* login page css */
+.card-container {
+    height: 85vh;
+    width: 100vw;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    font-family: 'Yantramanav', sans-serif;
+    height: 60%;
+    width: 20%;
+    min-width: 300px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 15px -15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    /* background-image: linear-gradient(#aa562b, #C44900); */
+    background-image: linear-gradient(#C44900, #ddaa8a);
+}
+
+.btn {
+    font-family: 'Yantramanav', sans-serif;
+    width: 10em;
+    height: 3em;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form>p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form>p>label {
+    font-size: 1.5em;
+    color: white;
+    text-shadow: 1px 1px 0px #f39209;
+}
+
+.login-form>p>input {
+    background: #fff;
+    padding: 2.5%;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#login-buttons {
+    /* background-color: black; */
+    width: 100%;
+}
+
+#login-buttons>div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card>form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-buttons>div>a>button {
+    width: 5em;
+    border-radius: 5px;
+}
+
+.card-title {
+    font-size: 2.5em;
+    color: white;
+    text-align: center;
+    text-shadow: 2.5px 2.5px 0px #FFB650;
+    /* background-image: linear-gradient(#f2d362, #C44900); */
+    background-color: transparent;
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    justify-content: flex-start;
+}
+
+/* End login page css */
+
+/* Start User Profile CSS */
+.profile-pic {
+    height: 30%;
+    width: 40%;
+}
+
+.profile-pic>img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    align-items: space-between;
+}
+
+.card-buttons>a>button {
+    /* background-color: #E3E4DB; */
+    background-image: linear-gradient(#f1bd02, #ffffff);
+    color: #232323;
+    font-family: 'Yantramanav', sans-serif;
+    box-shadow: 10px 10px 15px -9px;
+    width: 100%;
+    height: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ddaa8a;
+    border-radius: 5px;
+    margin: 2%;
+}
+
+.card-buttons>a>button:hover {
+    border-color: #fff;
+    border-width: 1px 2px 1px 2px;
+}
+
+#user-update-cards {
+    display: flex;
+}
+
+#user-update-cards>div>div {
+    width: 35vw;
+}
+
+/* End User Profile CSS */
