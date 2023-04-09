@@ -49,7 +49,6 @@ body {
     display: flex;
     align-items: center;
     width: 30%;
-    /* flex-wrap: wrap; */
     align-content: center;
 }
 
@@ -152,9 +151,15 @@ footer {
 
 /* 🌈 vvv INDEX.HTML LINES 118 -  vvv */
 
+.board-card-text {
+    font-family: 'Yantramanav', sans-serif;
+    color: #a03b00;
+}
+
 .board-container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     /* background-color: pink; */
     width: 100%;
     height: 100%;
@@ -163,6 +168,9 @@ footer {
 .board {
     width: 100%;
     height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -178,20 +186,24 @@ footer {
     justify-content: flex-start;
 }
 
-.board-card-text {
-    font-family: 'Yantramanav', sans-serif;
-    color: #a03b00;
-}
-
-
 
 .board-card {
-    background-color: rgb(232, 244, 249);
+    /* background-color: rgb(232, 244, 249); */
+    background-image: linear-gradient(20deg, #c9ebf9, #E8F4F9, #c9ebf9);
+    height: 100%;
+    width: 40%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.board-title {
+    /* align-self: center; */
+}
 
-*/ .board-card {
-    font-size: 2rem;
+hr {
+    width: 25em;
 }
 
 /* 🌈 ^^^ INDEX.HTML LINES 118 - ^^^ */
