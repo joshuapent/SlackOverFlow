@@ -12,9 +12,9 @@
                     {% if board.post_set.count == 0 %}
                     <h1 class="board-card-text">{{board.board_name}} | No Posts </h1>
                     {% elif board.post_set.count == 1 %}
-                    <h1 class="board-card-text">{{board.board_name}} | {{ board|length }} Post </h1>
+                    <h1 class="board-card-text">{{board.board_name}} | {{ board.post_set.count }} Post </h1>
                     {% else %}
-                    <h1 class="board-card-text">{{board.board_name}} | {{ board|length }} Posts</h1>
+                    <h1 class="board-card-text">{{board.board_name}} | {{ board.post_set.count }} Posts</h1>
                     {% endif %}
                 </a>
             </div>
