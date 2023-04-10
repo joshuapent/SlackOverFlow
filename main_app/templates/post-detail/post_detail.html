@@ -6,15 +6,16 @@
     <div class="post-container">
         <div class="post-text">
             <div class="post-header">
-                <div class="post-user">
-                {% block post_user %}
-                    <p> {{ post.user }}</p>
-                {% endblock %}
-                </div>
                 <div class="post-title">
-                {% block post_title %}
-                    <h1> {{ post.title }} </h1>
-                {% endblock %}
+                    {% block post_title %}
+                    <h1 id="posttitleID"> {{ post.title }} </h1>
+                    {% endblock %}
+                </div>
+                <div class="post-user">
+                    {% block post_user %}
+                    <!-- <img src="{{ post.user.profile_pic }}" alt=""> -->
+                    <p class="username">{{ post.user }}</p>
+                    {% endblock %}
                 </div>
             </div>
 
@@ -22,7 +23,7 @@
                 {% block post_content %}
 
                 <p> {{ post.text }}</p>
-                
+
                 {% endblock %}
             </div>
         </div>
@@ -49,59 +50,59 @@
 </div>
 <div class="comment-section">
     {% for comment in comments %}
-        <div class="comment">
-            {% if comment.post.id == post.id  %}
-                <div class="comment-header">
-                    {% block comment_header %}
+    <div class="comment">
+        {% if comment.post.id == post.id %}
+        <div class="comment-header">
+            {% block comment_header %}
 
-                    <h3>{{comment.user}}</h3>
+            <h3 class="username">{{comment.user}}</h3>
 
-                    {% endblock %}
-                </div>
-                <div class="comment-body">
-                    {% if comment.id == selected_comment.id %}
-                    
-                    {%  block comment_body_var %}
+            {% endblock %}
+        </div>
+        <div class="comment-body">
+            {% if comment.id == selected_comment.id %}
 
-                    {% endblock %}
+            {% block comment_body_var %}
 
-                    {% else %}
+            {% endblock %}
 
-                    {% block comment_body %}
+            {% else %}
 
-                        <p>{{comment.text}}</p>
+            {% block comment_body %}
 
-                    {% endblock %}
+            <p>{{comment.text}}</p>
 
-                    {% endif %}
-                </div>
-                <div class="comment-options">
- 
-                    {% if comment.id == selected_comment.id %}
-                    
-                    {%  block comment_options_var %}
+            {% endblock %}
 
-                    {% endblock %}
-
-                    {% else %}
-
-                    {% block comment_options %}
-                    <a href="#comment">
-                    <a href="{% url 'comment_edit' post.id comment.id %}">Edit</a></a>
-                    <a href="{% url 'comment_delete' post.id comment.id %}">Delete</a>
-                    {% endblock %}
-
-                    {% endif %}
-                    <div class="upvote">
-                        <form action="{% url 'upvote' post.id comment.id %}" method="POST">
-                            {% csrf_token %}
-                            <input type="submit" value='Upvote'>
-                        </form>
-                    </div>
-                    <div class="likes">Upvotes: {{comment.upvote_count}}</div>
-                </div>
             {% endif %}
         </div>
+        <div class="comment-options">
+
+            {% if comment.id == selected_comment.id %}
+
+            {% block comment_options_var %}
+
+            {% endblock %}
+
+            {% else %}
+
+            {% block comment_options %}
+            <a href="#comment">
+                <a href="{% url 'comment_edit' post.id comment.id %}">Edit</a></a>
+            <a href="{% url 'comment_delete' post.id comment.id %}">Delete</a>
+            {% endblock %}
+
+            {% endif %}
+            <div class="upvote">
+                <form action="{% url 'upvote' post.id comment.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" value='Upvote'>
+                </form>
+            </div>
+            <div class="likes">Upvotes: {{comment.upvote_count}}</div>
+        </div>
+        {% endif %}
+    </div>
     {% endfor %}
 </div>
 
