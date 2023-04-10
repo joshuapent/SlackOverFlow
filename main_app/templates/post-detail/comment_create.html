@@ -4,12 +4,12 @@
 {% block post_footer %}  
 <div class="comment-display">
     {% block comment_click %}
-    <a href="{% url 'post_detail' post.id %}">Comment</a>
+    <a href="{% url 'post_detail' post.id %}" id="commentwidget" id="edbtn">Comment</a>
     {% endblock %}
 </div>
 <div class="edit-or-delete-post">
-    <a href="{% url 'post_update' post.id %}">Edit</a>
-    <a href="{% url 'post_delete' post.id %}">Delete</a>
+    <a href="{% url 'post_update' post.id %}" class="edbtn" id="editbtn">Edit</a>
+    <a href="{% url 'post_delete' post.id %}" class="edbtn" id="deletebtn">Delete</a>
 </div>
 {% endblock %}
 
