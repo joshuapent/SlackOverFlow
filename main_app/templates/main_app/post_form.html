@@ -1,24 +1,17 @@
 {% extends 'post-detail/post_detail.html' %}
-
-{% block post_user %}
+{% block post_content %}
 {% if object %}
-<h1>Edit {{ object.name }}</h1>
+  <h1>Edit {{ object.name }}</h1>
 {% else %}
-<h1>New Post</h1>
+  <h1>New Post</h1>
 {% endif %}
-{% endblock %}
 <form action="" method="POST">
   {% csrf_token %}
-  {% block post_title %}
-  {% endblock %}
-
-  {% block post_content %}
-
-  {{ form.as_p }}
-
-  {% endblock %}
-
-  {% block post_footer %}
-  <input type="submit" value="Submit!" class="btn">
+  <table>
+    {{ form.as_table }}
+  </table>
+{% endblock %}
+{% block post_footer %}
+<input type="submit" value="Submit!" class="btn">
 </form>
 {% endblock %}
