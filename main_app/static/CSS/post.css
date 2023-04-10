@@ -38,14 +38,19 @@
     margin: 0;
     background-color: white;
     min-height: 50vh;
+    border-bottom: 1px solid grey;
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 .post-body>p {
     margin: 0;
-    padding: 1.2em;
+    padding-top: 1.2em;
 }
 
 .post-footer {
+    margin-top: 0.7em;
+    margin-bottom: 0.5em;
     margin-left: 1em;
     margin-right: 1em;
     display: flex;
@@ -64,30 +69,35 @@
 }
 
 .comment-section {
+    margin-top: 2em;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .comment {
+    border: 1px solid black;
     margin-top: 2em;
     margin-bottom: 1em;
-    border: 1px solid black;
     width: 75vw;
 }
 
 .comment-header {
     background-image: linear-gradient(#aa562b, #C44900);
     color: white;
-    margin: 0;
 }
 
+
 .comment-body {
-    border: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 .comment-options {
-    border: 1px solid black;
+    display: flex;
+    padding: 0.3em;
+    justify-content: space-evenly;
 }
 
 #text {
@@ -111,9 +121,51 @@ textarea {
     font-family: 'Righteous';
     color: rgb(245, 155, 0);
     text-shadow: 1px 1px 0px #FFB650;
+    margin: 0;
 }
 
 #posttitleID {
     font-family: 'Righteous';
     color: white;
+}
+
+.edbtn {
+    color: white; 
+    text-shadow: -1px -1px 0px black;
+    border-radius: .2em;
+    padding: 0.3em;
+    text-decoration: none;
+}
+
+.edbtn:hover { 
+    transform:scale(1.04);
+    transition:ease-in-out .2s;
+}
+
+#editbtn {
+    background-color: #8F95D3;
+}
+
+#deletebtn {
+    background-color: red;
+}
+
+#upvotesubmit {
+    background-color: #7EBC89;
+    border: 0.1em solid #7EBC89;
+    cursor: pointer;
+}
+
+#commentwidget {
+    color: white; 
+    text-shadow: -1px -1px 0px black;
+    border-radius: .2em;
+    padding: 0.3em;
+    text-decoration: none;
+    background-color:rgb(245, 155, 0);
+}
+
+#commentwidget:hover {
+    transform:scale(1.04);
+    transition:ease-in-out .2s;
 }
