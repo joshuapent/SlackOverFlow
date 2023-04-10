@@ -6,7 +6,7 @@
             <p>Are you sure you want to delete this? Its irreversible.</p>
             <form action="" method="POST">
                 {% csrf_token %}
-                <input type="submit" value="Yes - Delete!">
+                <input type="submit" value="Yes - Delete!" class="edbtn" id="deletebtn">
                 <a href="{% url 'post_detail' post.id %}">No, I changed my mind.</a>
             </form>
         </div>
