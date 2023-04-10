@@ -5,38 +5,34 @@
 <div class="post-section">
     <div class="post-container">
         <div class="post-text">
+            {% block post_content %}
             <div class="post-header">
                 <div class="post-title">
-                    {% block post_title %}
                     <h1 id="posttitleID"> {{ post.title }} </h1>
-                    {% endblock %}
                 </div>
                 <div class="post-user">
-                    {% block post_user %}
                     <!-- <img src="{{ post.user.profile_pic }}" alt=""> -->
                     <p class="username">{{ post.user }}</p>
-                    {% endblock %}
                 </div>
             </div>
 
             <div class="post-body">
-                {% block post_content %}
 
                 <p> {{ post.text }}</p>
 
-                {% endblock %}
             </div>
+            {% endblock %}
         </div>
         <div class="post-footer">
             {% block post_footer %}
             <div class="comment-display">
                 {% block comment_click %}
-                <a href="{% url 'comment' post.id %}">Comment</a>
+                <a href="{% url 'comment' post.id %}" id="commentwidget" id="edbtn">Comment</a>
                 {% endblock %}
             </div>
             <div class="edit-or-delete-post">
-                <a href="{% url 'post_update' post.id %}">Edit</a>
-                <a href="{% url 'post_delete' post.id %}">Delete</a>
+                <a href="{% url 'post_update' post.id %}" class="edbtn" id="editbtn">Edit</a>
+                <a href="{% url 'post_delete' post.id %}" class="edbtn" id="deletebtn">Delete</a>
             </div>
             {% endblock %}
         </div>
@@ -50,8 +46,8 @@
 </div>
 <div class="comment-section">
     {% for comment in comments %}
+    {% if comment.post.id == post.id %}
     <div class="comment">
-        {% if comment.post.id == post.id %}
         <div class="comment-header">
             {% block comment_header %}
 
@@ -87,22 +83,21 @@
             {% else %}
 
             {% block comment_options %}
-            <a href="#comment">
-                <a href="{% url 'comment_edit' post.id comment.id %}">Edit</a></a>
-            <a href="{% url 'comment_delete' post.id comment.id %}">Delete</a>
+            <a href="{% url 'comment_edit' post.id comment.id %}" class="edbtn" id="editbtn">Edit</a>
+            <a href="{% url 'comment_delete' post.id comment.id %}" class="edbtn" id="deletebtn">Delete</a>
             {% endblock %}
 
             {% endif %}
             <div class="upvote">
                 <form action="{% url 'upvote' post.id comment.id %}" method="POST">
                     {% csrf_token %}
-                    <input type="submit" value='Upvote'>
+                    <input type="submit" value='Upvote' name="upvotesubmit" class="edbtn" id="upvotesubmit">
+                    <label for="upvotesubmit">{{comment.upvote_count}}</label>
                 </form>
             </div>
-            <div class="likes">Upvotes: {{comment.upvote_count}}</div>
         </div>
-        {% endif %}
     </div>
+    {% endif %}
     {% endfor %}
 </div>
 
